@@ -20,7 +20,7 @@ function App() {
 
     return (
         <main>
-            <h1>Speed Typing Game</h1>
+            <h1>How fast can you type?</h1>
             <textarea
                 name="userText"
                 cols="30"
