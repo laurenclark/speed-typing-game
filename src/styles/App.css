@@ -19,6 +19,11 @@ body {
     font-weight: 400;
 }
 
+main {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
 button {
     font-family: 'Press Start 2P', cursive;
     display: block;
