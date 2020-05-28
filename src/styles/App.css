@@ -28,6 +28,7 @@ button {
     background: #00b800;
     padding: 10px 20px;
     text-transform: uppercase;
+    pointer: cursor;
 }
 
 h1 {
