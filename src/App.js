@@ -6,8 +6,9 @@ function App() {
     const [userText, setUserText] = useState('');
     const [wordCount, setWordCount] = useState(0);
 
-    function handleChange(event) {
-        setUserText(event.target.value);
+    function handleChange(e) {
+        const { value } = e.target;
+        setUserText(value);
     }
     function handleStart() {}
 
