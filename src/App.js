@@ -52,9 +52,12 @@ function App() {
                 rows="10"
                 value={userText}
                 onChange={handleChange}
+                disabled={!isRunning}
             />
             <h4>Time remaining {time} seconds.</h4>
-            <button onClick={startGame}>{buttonText}</button>
+            <button onClick={startGame} disabled={isRunning}>
+                {buttonText}
+            </button>
             <p>Total Words: {wordCount}</p>
         </main>
     );
