@@ -5,15 +5,16 @@ function App() {
     const [time, setTime] = useState(5);
     const [userText, setUserText] = useState('');
     const [wordCount, setWordCount] = useState(0);
+    const [isRunning, setIsRunning] = useState(false);
 
     useEffect(() => {
-        if (time > 0) {
+        if (isRunning && time > 0) {
             setTimeout(() => {
                 setTime((time) => time - 1);
             }, 1000);
         }
         return () => {};
-    }, [time]);
+    }, [time, isRunning]);
 
     function handleChange(e) {
         const { value } = e.target;
@@ -25,7 +26,11 @@ function App() {
         return wordArray.filter((word) => word !== '').length;
     }
 
-    function handleStart() {}
+    function handleStart() {
+        setIsRunning(!isRunning);
+    }
+
+    console.log(isRunning);
 
     return (
         <main>
@@ -38,9 +43,7 @@ function App() {
                 onChange={handleChange}
             />
             <h4>Time remaining {time} seconds.</h4>
-            <button onClick={() => console.log(wordCounter(userText))}>
-                Start
-            </button>
+            <button onClick={handleStart}>Start</button>
             <p>Total Words: {wordCount}</p>
         </main>
     );
