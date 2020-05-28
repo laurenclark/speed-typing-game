@@ -40,7 +40,13 @@ function App() {
                 onChange={handleChange}
             />
             <h4>Time remaining {time} seconds.</h4>
-            <button onClick={() => setIsRunning(true)}>Start</button>
+            <button
+                onClick={() => {
+                    setIsRunning(true);
+                    setTime(5);
+                }}>
+                Start
+            </button>
             <p>Total Words: {wordCount}</p>
         </main>
     );
