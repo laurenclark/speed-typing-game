@@ -14,6 +14,7 @@ function App() {
             }, 1000);
         } else if (time === 0) {
             setIsRunning(false);
+            setWordCount(wordCounter(userText));
         }
         return () => {};
     }, [time, isRunning]);
