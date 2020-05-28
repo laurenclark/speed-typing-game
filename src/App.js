@@ -2,10 +2,14 @@ import React, { useState, useEffect } from 'react';
 import './styles/App.css';
 
 function App() {
-    const [time, setTime] = useState(5);
+    const STARTING_TIME = 5;
+
+    const [time, setTime] = useState(STARTING_TIME);
     const [userText, setUserText] = useState('');
     const [wordCount, setWordCount] = useState(0);
     const [isRunning, setIsRunning] = useState(false);
+
+    const buttonText = isRunning ? 'Type!' : 'Start';
 
     useEffect(() => {
         if (isRunning && time > 0) {
@@ -13,8 +17,7 @@ function App() {
                 setTime((time) => time - 1);
             }, 1000);
         } else if (time === 0) {
-            setIsRunning(false);
-            setWordCount(wordCounter(userText));
+            endGame();
         }
         return () => {};
     }, [time, isRunning]);
@@ -29,6 +32,17 @@ function App() {
         return wordArray.filter((word) => word !== '').length;
     }
 
+    function startGame() {
+        setIsRunning(true);
+        setTime(STARTING_TIME);
+        setUserText('');
+    }
+
+    function endGame() {
+        setIsRunning(false);
+        setWordCount(wordCounter(userText));
+    }
+
     return (
         <main>
             <h1>How fast can you type?</h1>
@@ -40,13 +54,7 @@ function App() {
                 onChange={handleChange}
             />
             <h4>Time remaining {time} seconds.</h4>
-            <button
-                onClick={() => {
-                    setIsRunning(true);
-                    setTime(5);
-                }}>
-                Start
-            </button>
+            <button onClick={startGame}>{buttonText}</button>
             <p>Total Words: {wordCount}</p>
         </main>
     );
