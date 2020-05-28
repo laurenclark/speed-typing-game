@@ -30,8 +30,6 @@ function App() {
         setIsRunning(!isRunning);
     }
 
-    console.log(isRunning);
-
     return (
         <main>
             <h1>How fast can you type?</h1>
