@@ -18,6 +18,7 @@ function App() {
                 name="userText"
                 cols="30"
                 rows="10"
+                value={userText}
                 onChange={handleChange}
             />
             <h4>Time remaining {time} seconds.</h4>
