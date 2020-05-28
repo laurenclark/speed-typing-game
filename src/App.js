@@ -1,10 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './styles/App.css';
 
 function App() {
-    const [time, setTime] = useState(0);
+    const [time, setTime] = useState(5);
     const [userText, setUserText] = useState('');
     const [wordCount, setWordCount] = useState(0);
+
+    useEffect(() => {
+        if (time > 0) {
+            setTimeout(() => {
+                setTime((time) => time - 1);
+            }, 1000);
+        }
+        return () => {};
+    }, [time]);
 
     function handleChange(e) {
         const { value } = e.target;
