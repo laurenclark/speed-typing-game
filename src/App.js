@@ -12,6 +12,8 @@ function App() {
             setTimeout(() => {
                 setTime((time) => time - 1);
             }, 1000);
+        } else if (time === 0) {
+            setIsRunning(false);
         }
         return () => {};
     }, [time, isRunning]);
