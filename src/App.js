@@ -1,6 +1,13 @@
 import React, { useState } from 'react';
 import './styles/App.css';
 
+/*--------------------------------------------------------------
+## Timer - TODO
+----------------------------------------------------------------
+- Create a function to calculate the number of words in the userText state. 
+- Log out the number of words when the button is clicked
+--------------------------------------------------------------*/
+
 function App() {
     const [time, setTime] = useState(0);
     const [userText, setUserText] = useState('');
