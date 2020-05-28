@@ -17,7 +17,8 @@ function App() {
                 name="userText"
                 cols="30"
                 rows="10"
-                onChange={handleChange}></textarea>
+                onChange={handleChange}
+            />
             <h4>Time remaining {time} seconds.</h4>
             <button onClick={handleStart}>Start</button>
             <p>Total Words: {wordCount}</p>
