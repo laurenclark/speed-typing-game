@@ -26,10 +26,6 @@ function App() {
         return wordArray.filter((word) => word !== '').length;
     }
 
-    function handleStart() {
-        setIsRunning(!isRunning);
-    }
-
     return (
         <main>
             <h1>How fast can you type?</h1>
@@ -41,7 +37,7 @@ function App() {
                 onChange={handleChange}
             />
             <h4>Time remaining {time} seconds.</h4>
-            <button onClick={handleStart}>Start</button>
+            <button onClick={() => setIsRunning(true)}>Start</button>
             <p>Total Words: {wordCount}</p>
         </main>
     );
