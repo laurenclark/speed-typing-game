@@ -1,7 +1,7 @@
 @font-face {
     font-family: 'Press Start 2P';
     src: local('Rajdhani'),
-        url(./fonts/PressStart2P-Regular.ttf) format('truetype');
+        url(../fonts/PressStart2P-Regular.ttf) format('truetype');
 }
 
 html,

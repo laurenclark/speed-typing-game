@@ -1,16 +1,28 @@
-import React from 'react';
-import './App.css';
-
-/*--------------------------------------------------------------
-## UI - TODO
---------------------------------------------------------------*/
-// User should see a textarea box to type in
-// User should see a h4 element displaying the remaining time
-// User should see a button to be able to click on and start the game
-// User should see a display of the word count
+import React, { useState } from 'react';
+import './styles/App.css';
 
 function App() {
-    return <h1>Speed Typing Game</h1>;
+    const [time, setTime] = useState(0);
+    const [userText, setUserText] = useState('');
+    const [wordCount, setWordCount] = useState(0);
+
+    function handleChange() {}
+
+    function handleStart() {}
+
+    return (
+        <main>
+            <h1>Speed Typing Game</h1>
+            <textarea
+                name="userText"
+                cols="30"
+                rows="10"
+                onChange={handleChange}></textarea>
+            <h4>Time remaining {time} seconds.</h4>
+            <button onClick={handleStart}>Start</button>
+            <p>Total Words: {wordCount}</p>
+        </main>
+    );
 }
 
 export default App;
