@@ -1,52 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React from 'react';
+import useGameLogic from './useGameLogic';
 import './styles/App.css';
 
 function App() {
-    const STARTING_TIME = 5;
-
-    const [time, setTime] = useState(STARTING_TIME);
-    const [userText, setUserText] = useState('');
-    const [wordCount, setWordCount] = useState(0);
-    const [isRunning, setIsRunning] = useState(false);
-    const textBoxRef = useRef(null);
-
-    const buttonText = isRunning ? 'Type!' : 'Start';
-
-    useEffect(() => {
-        if (isRunning && time > 0) {
-            setTimeout(() => {
-                setTime((time) => time - 1);
-            }, 1000);
-        } else if (time === 0) {
-            endGame();
-        }
-        return () => {};
-    }, [time, isRunning]);
-
-    function handleChange(e) {
-        const { value } = e.target;
-        setUserText(value);
-    }
-
-    function wordCounter(text) {
-        const wordArray = text.trim().split(' ');
-        return wordArray.filter((word) => word !== '').length;
-    }
-
-    function startGame() {
-        setIsRunning(true);
-        setTime(STARTING_TIME);
-        setUserText('');
-        // Manually set to disabled, can't focus due
-        // to asynchronicity otherwise.
-        textBoxRef.current.disabled = false;
-        textBoxRef.current.focus();
-    }
-
-    function endGame() {
-        setIsRunning(false);
-        setWordCount(wordCounter(userText));
-    }
+    const [
+        userText,
+        handleChange,
+        isRunning,
+        textBoxRef,
+        time,
+        startGame,
+        buttonText,
+        wordCount
+    ] = useGameLogic();
 
     return (
         <main>
