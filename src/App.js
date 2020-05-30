@@ -37,6 +37,8 @@ function App() {
         setIsRunning(true);
         setTime(STARTING_TIME);
         setUserText('');
+        // Manually set to disabled, can't focus due
+        // to asynchronicity otherwise.
         textBoxRef.current.disabled = false;
         textBoxRef.current.focus();
     }
